@@ -1,0 +1,9 @@
+.logo{
+    margin-top: -25px;
+    margin-left: -100px;
+
+}
+
+.logo-img{
+transform: scale(0.5);
+}
