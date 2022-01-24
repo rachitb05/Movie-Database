@@ -7,6 +7,7 @@ import Account from "./Account";
 import Slideshow from "./Slideshow";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import TopMoviesHeader from "./TopMoviesHeader";
 const api_key = process.env.REACT_APP_API_KEY;
 const API_KEY = api_key;
 function App() {
@@ -25,7 +26,8 @@ function App() {
         .then((response) => response.json())
         .then((data) => {
           setNowPlaying(data.results);
-          console.log(nowPlaying);
+          // console.log(data.results);
+          // console.log(nowPlaying);
         });
     };
     getData();
@@ -38,6 +40,8 @@ function App() {
   };
   return (
     <div className="App">
+    
+     
       <div className="app__header">
         <Logo />
         {/* <Title /> */}
@@ -64,6 +68,7 @@ function App() {
           />
         );
       })}
+      <TopMoviesHeader />
     </div>
   );
 }

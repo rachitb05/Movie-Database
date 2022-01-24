@@ -31,7 +31,7 @@ function Slideshow({
             </h1>
             <h2 className="info__overview">{overview}</h2>
             {vote_avg === 0 ? (
-              <h3 className="info__vote-avg">Popularity:{popularity}/100</h3>
+              <h3 className="info__vote-avg">Popularity:{popularity}</h3>
             ) : (
               <h3 className="info__vote-avg">User Rating:{vote_avg}/10</h3>
             )}
