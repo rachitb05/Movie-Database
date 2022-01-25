@@ -63,7 +63,7 @@ function SearchResult() {
   else {
     return (
       <div>
-        <h1>Search Results for "{searchQuery}"</h1>
+        <h1 style={{fontWeight:"lighter"}}>Search Results for "{searchQuery}"  </h1>
         {data.map((movie) => {
           return <SearchedMovie movie={movie} />;
         })}
