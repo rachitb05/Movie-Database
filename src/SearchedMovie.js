@@ -15,23 +15,24 @@ function SearchedMovie({ movie }) {
         });
     };
     getData();
-  }, []);
+}, []);
 
-  return (
-    <div>
-      <h2>{movie.title}</h2>
-      {movieData.backdrop_path === null ? (
-        <img src={NoImg} alt="no img" />
-      ) : (
-        <img
-          src={`https://image.tmdb.org/t/p/w780/${movieData.backdrop_path}`}
-          alt=""
-        />
-      )}
-      <p>Realease Date:{movie.release_date}</p>
-      <p>Runtime:{movieData.runtime}</p>
-    </div>
-  );
+    return (
+      <div>     
+        <h2>{movie.title}</h2>
+        {movieData.backdrop_path === null ? (
+          <img src={NoImg} alt="no img" />
+        ) : (
+          <img
+            src={`https://image.tmdb.org/t/p/w780/${movieData.backdrop_path}`}
+            alt=""
+          />
+        )}
+        <p>Realease Date:{movie.release_date}</p>
+        <p>Runtime:{movieData.runtime} Minutes</p>
+      </div>
+    );
+//   }
 }
 
 export default SearchedMovie;

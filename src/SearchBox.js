@@ -5,13 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 function SearchBox() {
   const [searchQuery, setSearchQuery] = useState("");
    let navigate=useNavigate();
-  function handleSubmit() {
-    // // alert(`value returned is ${searchQuery}`);
-    // <Link to="/search"
-    // ><button>hi</button></Link>;
-    // console.log(searchQuery);
-    // event.preventDefault();
-  
+  function handleSubmit() { 
    navigate('/search',{state:{search:searchQuery}});
   }
   return (

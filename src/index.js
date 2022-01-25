@@ -4,15 +4,14 @@ import "./index.css";
 import App from "./App";
 import Search from "./SearchResult";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter,Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-        <Route  path="/" element={<App />}></Route>{" "}
-        <Route exact path="/search" element={<Search/>}></Route>{" "}
+      <Routes>
+        <Route path="/" element={<App />}></Route>{" "}
+        <Route exact path="/search" element={<Search />}></Route>{" "}
       </Routes>
-      
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
