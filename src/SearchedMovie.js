@@ -11,7 +11,7 @@ function SearchedMovie({ movie }) {
         .then((response) => response.json())
         .then((data) => {
           setMovieData(data);
-          console.log(data);
+          // console.log(data);
         });
     };
     getData();

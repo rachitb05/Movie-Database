@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import SearchedMovie from "./SearchedMovie";
 import LoadingGif from "./LoadingGif.gif";
 import "./SearchResult.css";
+import Header from "./Header";
 function SearchResult() {
   const location = useLocation();
   const searchQuery = location.state.search;
@@ -52,8 +53,11 @@ function SearchResult() {
       //   src={LoadingGif}
       //   alt="Loading..."
       // />
-      <div className="spinner">
-        <div className="spinner__loader"></div>
+      <div>
+        <Header />
+        <div className="spinner">
+          <div className="spinner__loader"></div>
+        </div>
       </div>
       // </div>
     );
@@ -63,7 +67,10 @@ function SearchResult() {
   else {
     return (
       <div>
-        <h1 style={{fontWeight:"lighter"}}>Search Results for "{searchQuery}"  </h1>
+        <Header />
+        <h1 style={{ fontWeight: "lighter" }}>
+          Search Results for "{searchQuery}"{" "}
+        </h1>
         {data.map((movie) => {
           return <SearchedMovie movie={movie} />;
         })}
