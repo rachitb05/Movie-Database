@@ -21,19 +21,19 @@ function Slideshow({
       {index === current && (
         <div className="slideshow-2">
           <img
-            className="slideshow__img"
+            className="slideshow__img slide-in-left"
             src={imgurl}
             alt="Now Playing Movie Poster"
           />
-          <div className="slideshow__info">
-            <h1 text className="info__title">
+          <div className="slideshow__info ">
+            <h1 text className="info__title slide-in-top">
               {title}
             </h1>
-            <h2 className="info__overview">{overview}</h2>
+            <h2 className="info__overview slide-in-right">{overview}</h2>
             {vote_avg === 0 ? (
-              <h3 className="info__vote-avg">Popularity:{popularity}</h3>
+              <h3 className="info__vote-avg slide-in-bottom">Popularity:{popularity}</h3>
             ) : (
-              <h3 className="info__vote-avg">User Rating:{vote_avg}/10</h3>
+              <h3 className="info__vote-avg slide-in-bottom">User Rating:{vote_avg}/10</h3>
             )}
           </div>
         </div>

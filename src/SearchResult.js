@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SearchedMovie from "./SearchedMovie";
-import LoadingGif from "./LoadingGif.gif";
+// import LoadingGif from "./LoadingGif.gif";
 import "./SearchResult.css";
 import Header from "./Header";
 function SearchResult() {
