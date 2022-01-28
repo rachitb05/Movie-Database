@@ -5,11 +5,12 @@ import LoadingGif from "./LoadingGif.gif";
 import "./SearchResult.css";
 import Header from "./Header";
 function SearchResult() {
+  const [data, setData] = useState([]);
   const location = useLocation();
   const searchQuery = location.state.search;
-  const baseurl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
-  const [data, setData] = useState([]);
+  // console.log(searchQuery);
   useEffect(() => {
+    const baseurl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
     const getData = async () => {
       await fetch(baseurl)
         .then((response) => response.json())
@@ -19,22 +20,24 @@ function SearchResult() {
         });
     };
     getData();
-  }, []);
-  const [loading, setLoading] = useState(true);
+  }, [searchQuery]);
 
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     // Loading function to load data or
     // fake it using setTimeout;
     const loadData = async () => {
       // Wait for two second
+      if (loading === false) {
+        setLoading(true);
+      }
       await new Promise((r) => setTimeout(r, 3000));
 
       // Toggle loading state
       setLoading((loading) => !loading);
     };
-
     loadData();
-  }, []);
+  }, [searchQuery]);
 
   // If page is in loading state, display
   // loading message. Modify it as per your
@@ -71,8 +74,8 @@ function SearchResult() {
         <h1 style={{ fontWeight: "lighter" }}>
           Search Results for "{searchQuery}"{" "}
         </h1>
-        {data.map((movie) => {
-          return <SearchedMovie movie={movie} />;
+        {data.map((movie, index) => {
+          return <SearchedMovie movie={movie} key={index} />;
         })}
       </div>
     );

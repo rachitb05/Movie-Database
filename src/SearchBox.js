@@ -6,9 +6,13 @@ import Mic from "./Mic";
 function SearchBox() {
   const [searchQuery, setSearchQuery] = useState("");
   let navigate = useNavigate();
-  function handleSubmit() {
+  function handleSubmit(event) {
     if (searchQuery === "") alert("Please enter some movie name");
-    else navigate("/search", { state: { search: searchQuery } });
+    else {
+      // console.log(searchQuery);
+      navigate("/search", { state: { search: searchQuery } });
+      event.preventDefault();
+    }
   }
   return (
     <div div="searchbox">

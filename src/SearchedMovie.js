@@ -3,9 +3,9 @@ import NoImg from "./noimg.jpg";
 import "./SearchedMovie.css";
 function SearchedMovie({ movie }) {
   const [movieData, setMovieData] = useState({});
-  const movie_id = movie.id;
-  const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
   useEffect(() => {
+    const movie_id = movie.id;
+    const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
     const getData = async () => {
       await fetch(baseurl)
         .then((response) => response.json())
@@ -15,7 +15,7 @@ function SearchedMovie({ movie }) {
         });
     };
     getData();
-  }, []);
+  }, [movie]);
 
   return (
     <div>
@@ -27,7 +27,7 @@ function SearchedMovie({ movie }) {
         }}
       />
       <h2 style={{ fontSize: "50px", fontWeight: "lighter" }}>{movie.title}</h2>
-      {movieData.backdrop_path === null ? (
+      {(movieData.backdrop_path === null ||movieData.backdrop_path === undefined) ? (
         <img src={NoImg} alt="no img" />
       ) : (
         <img
