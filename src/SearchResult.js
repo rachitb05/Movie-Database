@@ -31,7 +31,7 @@ function SearchResult() {
       if (loading === false) {
         setLoading(true);
       }
-      await new Promise((r) => setTimeout(r, 3000));
+      await new Promise((r) => setTimeout(r, 1000));
 
       // Toggle loading state
       setLoading((loading) => !loading);
@@ -71,12 +71,14 @@ function SearchResult() {
     return (
       <div>
         <Header />
-        <h1 style={{ fontWeight: "lighter" }}>
+        <h1 style={{ fontWeight: "lighter" ,textAlign:"center" }}>
           Search Results for "{searchQuery}"{" "}
         </h1>
-        {data.map((movie, index) => {
-          return <SearchedMovie movie={movie} key={index} />;
-        })}
+        <div className="result-container">
+          {data.map((movie, index) => {
+            return <SearchedMovie movie={movie} key={index} />;
+          })}
+        </div>
       </div>
     );
   }

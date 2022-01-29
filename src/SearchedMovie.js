@@ -18,26 +18,31 @@ function SearchedMovie({ movie }) {
   }, [movie]);
 
   return (
-    <div>
+    <div className="movie-container">
       <hr
         style={{
-          colour: "white",
-          border: "2px white solid",
+          border: "2px black solid",
           width: "25%",
         }}
       />
-      <h2 style={{ fontSize: "50px", fontWeight: "lighter" }}>{movie.title}</h2>
-      {(movieData.backdrop_path === null ||movieData.backdrop_path === undefined) ? (
-        <img src={NoImg} alt="no img" />
-      ) : (
-        <img
-          src={`https://image.tmdb.org/t/p/w780/${movieData.backdrop_path}`}
-          alt=""
-        />
-      )}
-      <h2>Realease Date:{movie.release_date}</h2>
-      <h2>Runtime:{movieData.runtime} Minutes</h2>
-      {/* console.log({movieData.genres[0].name} */}
+      <h1 className="movie-title">{movie.title}</h1>
+      <div className="movie-imginfo">
+        {movieData.backdrop_path === null ||
+        movieData.backdrop_path === undefined ? (
+          <img className="movie-img" src={NoImg} alt="no img" />
+        ) : (
+          <img
+            className="movie-img"
+            src={`https://image.tmdb.org/t/p/w780/${movieData.backdrop_path}`}
+            alt=""
+          />
+        )}
+        <div className="movie-info">
+          <h2>Realease Date:{movie.release_date}</h2>
+          <h2>User Rating:{movieData.vote_average}/10</h2>
+         
+        </div>
+      </div>
     </div>
   );
   //   }

@@ -24,7 +24,7 @@ function SearchBox() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Try our Mic button"
+            placeholder="Try searching by voice"
           />
         </label>
 
