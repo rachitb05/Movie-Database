@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SearchedMovie from "./SearchedMovie";
 // import LoadingGif from "./LoadingGif.gif";
+import ScrollButton from "./ScrollButton";
 import "./SearchResult.css";
 import Header from "./Header";
 function SearchResult() {
@@ -71,7 +72,7 @@ function SearchResult() {
     return (
       <div>
         <Header />
-        <h1 style={{ fontWeight: "lighter" ,textAlign:"center" }}>
+        <h1 style={{ fontWeight: "lighter", textAlign: "center" }}>
           Search Results for "{searchQuery}"{" "}
         </h1>
         <div className="result-container">
@@ -79,6 +80,7 @@ function SearchResult() {
             return <SearchedMovie movie={movie} key={index} />;
           })}
         </div>
+        <ScrollButton />
       </div>
     );
   }
