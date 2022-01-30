@@ -33,14 +33,20 @@ function SearchedMovie({ movie }) {
         ) : (
           <img
             className="movie-img"
-            src={`https://image.tmdb.org/t/p/w780/${movieData.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w780/${movieData.poster_path}`}
             alt=""
           />
         )}
-        <div className="movie-info">
-          <h2>Realease Date:{movie.release_date}</h2>
-          <h2>User Rating:{movieData.vote_average}/10</h2>
-         
+        <div
+          className="movie-info"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3)),url("https://image.tmdb.org/t/p/w780/${movieData.backdrop_path}")`,
+          }}
+        >
+          <h2>Release Date:{movie.release_date}</h2>
+          <h2>
+            User Rating:{movieData.vote_average}/10({movie.vote_count})
+          </h2>
         </div>
       </div>
     </div>

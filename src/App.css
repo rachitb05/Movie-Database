@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;1,500&family=Spartan:wght@700&display=swap');
-
-body{
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;1,500&family=Spartan:wght@400&display=swap");
+body {
   background-color: rgba(0, 0, 0, 0.932);
   color: white;
 }
-.left-arrow{
+.left-arrow {
   color: rgb(250, 239, 221);
   transform: scale(2);
   position: absolute;
@@ -12,8 +11,8 @@ body{
   cursor: pointer;
   top: 50%;
   left: 1%;
-  }
-  .right-arrow{
+}
+.right-arrow {
   color: rgb(250, 239, 221);
   transform: scale(2);
   position: absolute;
@@ -21,4 +20,4 @@ body{
   cursor: pointer;
   top: 50%;
   right: 1%;
-  }
+}

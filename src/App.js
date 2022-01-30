@@ -4,7 +4,7 @@ import Slideshow from "./Slideshow";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import TopMoviesHeader from "./TopMoviesHeader";
-import Header from "./Header"
+import Header from "./Header";
 const api_key = process.env.REACT_APP_API_KEY;
 const API_KEY = api_key;
 function App() {
@@ -37,7 +37,7 @@ function App() {
   };
   return (
     <div className="App">
-       <Header/>   
+      <Header />
       <ArrowBackIosIcon className="left-arrow" onClick={prevSlide} />
       <ArrowForwardIosIcon className="right-arrow" onClick={nextSlide} />
 

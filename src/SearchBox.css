@@ -1,17 +1,19 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
 .form{
     margin-top: 20px;
   display: flex;
+  font-family: 'Mochiy Pop P One', sans-serif;
 }
 .form__label{
-   
    color: white;
    margin: 2px;  
 }
 .form__input{
    margin-left: 7px;
    height: 70%;
+   font-family: 'Mochiy Pop P One', sans-serif;
 }
+
 .form__submitbtn{
 border: 2px white solid;
   height: 100%;
