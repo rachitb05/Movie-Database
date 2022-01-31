@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NoImg from "./noimg.jpg";
 import "./SearchedMovie.css";
 function SearchedMovie({ movie }) {
   const [movieData, setMovieData] = useState({});
+  let navigate = useNavigate();
   useEffect(() => {
     const movie_id = movie.id;
     const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
     const getData = async () => {
       await fetch(baseurl)
-        .then((response) => response.json())
-        .then((data) => {
-          setMovieData(data);
-          // console.log(data);
-        });
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieData(data);
+        // console.log(data);
+      });
     };
     getData();
   }, [movie]);
-
+  
+  function handleClick() {
+    navigate("/movie", { state: { data: movieData } });
+  }
   return (
     <div className="movie-container">
       <hr
@@ -25,11 +30,13 @@ function SearchedMovie({ movie }) {
           width: "25%",
         }}
       />
-      <h1 className="movie-title">{movie.title}</h1>
+      <h1 className="movie-title" onClick={handleClick}>
+        {movie.title}
+      </h1>
       <div className="movie-imginfo">
         {movieData.backdrop_path === null ||
         movieData.backdrop_path === undefined ? (
-          <img className="movie-img" src={NoImg} alt="no img" />
+          <img className="movie-img" src={NoImg} alt="no img" onClick={handleClick} />
         ) : (
           <img
             className="movie-img"

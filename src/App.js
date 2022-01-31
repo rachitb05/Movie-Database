@@ -5,6 +5,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import TopMoviesHeader from "./TopMoviesHeader";
 import Header from "./Header";
+import Footer from "./Footer";
 const api_key = process.env.REACT_APP_API_KEY;
 const API_KEY = api_key;
 function App() {
@@ -47,18 +48,15 @@ function App() {
       {nowPlaying.map((movie, index) => {
         return (
           <Slideshow
-            poster_path={movie.poster_path}
-            vote_avg={movie.vote_average}
-            title={movie.title}
-            popularity={movie.popularity}
-            overview={movie.overview}
-            key={index}
+            movieData={movie}
             index={index}
             current={current}
+            key={index}
           />
         );
       })}
       <TopMoviesHeader />
+      <Footer />
     </div>
   );
 }

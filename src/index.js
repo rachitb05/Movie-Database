@@ -5,12 +5,14 @@ import App from "./App";
 import Search from "./SearchResult";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MovieDetails from "./MovieDetails";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}></Route>{" "}
         <Route exact path="/search" element={<Search />}></Route>{" "}
+        <Route exact path="/movie" element={<MovieDetails />}></Route>{" "}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

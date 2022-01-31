@@ -19,3 +19,4 @@ border: 2px white solid;
   height: 100%;
   cursor:pointer;
 }
+.form__submitbtn:hover{color: gold;border: 2px gold solid;}

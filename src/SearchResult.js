@@ -4,6 +4,8 @@ import SearchedMovie from "./SearchedMovie";
 import ScrollButton from "./ScrollButton";
 import "./SearchResult.css";
 import Header from "./Header";
+import Footer from "./Footer";
+import SpinnerLoader from "./SpinnerLoader";
 function SearchResult() {
   const [data, setData] = useState([]);
   const location = useLocation();
@@ -36,12 +38,7 @@ function SearchResult() {
 
   if (loading) {
     return (
-      <div>
-        <Header />
-        <div className="spinner">
-          <div className="spinner__loader"></div>
-        </div>
-      </div>
+      <SpinnerLoader/>
     );
   } else {
     return (
@@ -56,6 +53,7 @@ function SearchResult() {
           })}
         </div>
         <ScrollButton />
+        <Footer />
       </div>
     );
   }

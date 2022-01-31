@@ -28,12 +28,15 @@
 }
 
 .slideshow__img:hover {
-  transform: rotateY(360deg);
+  cursor: pointer;
 }
 .info__title {
   color: white;
   font-size: 300%;
   font-family: "Spartan", sans-serif;
+}
+.info__title:hover{
+  cursor: pointer;
 }
 .info__overview {
   color: white;
