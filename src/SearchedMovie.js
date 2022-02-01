@@ -44,7 +44,8 @@ function SearchedMovie({ movie }) {
           <h2>Release Date:{movie.release_date}</h2>
           {movie.vote_count > 0 && (
             <h2>
-              User Rating:{movie.vote_average}/10({movie.vote_count})
+              User Rating:{movie.vote_average}/10 <br />({movie.vote_count}{" "}
+              Votes)
             </h2>
           )}
         </div>

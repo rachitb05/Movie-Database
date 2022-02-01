@@ -2,23 +2,31 @@ import React, { useState } from "react";
 import Cast from "./Cast";
 import "./MovieInfo.css";
 import Recommendations from "./Recommendations";
+import numeral from "numeral";
 function MovieInfo({ crew, data, recommended }) {
-  const [show, setShow] = useState("");
+  const [show, setShow] = useState("cast");
   return (
     <div>
       <h1 className="heading">Details</h1>
       <div className="info">
         <div
-          className={show === "overview" ? "info-options" : null}
-          onClick={() => setShow("overview")}
-        >
-          Overview
-        </div>
-        <div
           className={show === "cast" ? "info-options" : null}
           onClick={() => setShow("cast")}
         >
           Cast
+        </div>
+
+        <div
+          className={show === "recommended" ? "info-options" : null}
+          onClick={() => setShow("recommended")}
+        >
+          Recommended
+        </div>
+        <div
+          className={show === "overview" ? "info-options" : null}
+          onClick={() => setShow("overview")}
+        >
+          Overview
         </div>
         <div
           className={show === "genres" ? "info-options" : null}
@@ -36,7 +44,9 @@ function MovieInfo({ crew, data, recommended }) {
       <div className="overview ">
         {show === "overview" ? (
           <div className="overview-content slide-in-fwd-center">
-            <h1 style={{ textAlign: "center" }}>Storyline</h1>{" "}
+            <h1 style={{ textAlign: "center", fontFamily: "cursive" }}>
+              Storyline
+            </h1>{" "}
             <h2 className="story">{data.overview}</h2>{" "}
           </div>
         ) : null}
@@ -52,8 +62,8 @@ function MovieInfo({ crew, data, recommended }) {
       <div className="genre">
         {show === "genres" ? (
           <div className="slide-in-fwd-center">
-            {data.genres.map((genre) => {
-              return <h2>▶{genre.name}</h2>;
+            {data.genres.map((genre, index) => {
+              return <h2 key={index}>▶{genre.name}</h2>;
             })}
           </div>
         ) : null}
@@ -64,7 +74,8 @@ function MovieInfo({ crew, data, recommended }) {
             {" "}
             {data.revenue !== 0 ? (
               <h2 style={{ textAlign: "center" }}>
-                Total Box Office Collection:${data.revenue}
+                Total Box Office Collection:
+                {numeral(data.revenue).format("$ 0,0[.]00")}
               </h2>
             ) : (
               <h2 style={{ textAlign: "center" }}>
@@ -75,7 +86,18 @@ function MovieInfo({ crew, data, recommended }) {
           </div>
         ) : null}
       </div>
-      <Recommendations data={recommended.results.slice(0,10)} />
+      <div className="recommended">
+        {show === "recommended" ? (
+          <div className="slide-in-fwd-center">
+            {recommended.results.length !== 0 && (
+              <h1 className="recommendation-heading">
+                If you liked this then Check out...
+              </h1>
+            )}
+            <Recommendations data={recommended.results.slice(0, 10)} />
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

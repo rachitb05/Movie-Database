@@ -6,16 +6,16 @@ function Footer() {
   return (
     <div className="footer-container">
       <hr />
-      <a class="footer-link" href="https://www.linkedin.com/in/rachitb05/">
+      <a className="footer-link" href="https://www.linkedin.com/in/rachitb05/">
         LinkedIn
       </a>
-      <a class="footer-link" href="https://www.instagram.com/rachitb_05/">
+      <a className="footer-link" href="https://www.instagram.com/rachitb_05/">
         Instagram
       </a>
-      <a class="footer-link" href="https://github.com/rachitb05">
+      <a className="footer-link" href="https://github.com/rachitb05">
         GitHub
       </a>
-      <p class="trademark">© {year} Rachit Bhatia.</p>
+      <p className="trademark">© {year} Rachit Bhatia.</p>
     </div>
   );
 }

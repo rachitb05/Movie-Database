@@ -16,7 +16,6 @@
   height: 100%;
   max-height: fit-content;
   flex-basis: 60%;
-  
 }
 .slideshow__img {
   /* width: 100%; */
@@ -24,7 +23,6 @@
   transition: transform 0.7s linear;
   margin-right: 1%;
   flex-basis: 40%;
-  
 }
 
 .slideshow__img:hover {
@@ -35,7 +33,7 @@
   font-size: 300%;
   font-family: "Spartan", sans-serif;
 }
-.info__title:hover{
+.info__title:hover {
   cursor: pointer;
 }
 .info__overview {
@@ -43,14 +41,13 @@
   font-weight: lighter;
   overflow: hidden;
   /* font-family:'Courier New', Courier, monospace; */
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .info__vote-avg {
   color: white;
   font-size: 200%;
   font-weight: lighter;
-  
 }
 @media (max-width: 640px) {
   .info__overview {

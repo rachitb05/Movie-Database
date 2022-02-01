@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function TopMoviesHeader() {
-  return <div>
+  return (
+    <div>
       <h1>Top Rated Movies</h1>
-  </div>;
+    </div>
+  );
 }
 
 export default TopMoviesHeader;

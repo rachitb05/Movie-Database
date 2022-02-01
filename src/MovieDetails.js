@@ -6,7 +6,7 @@ import MovieTitle from "./MovieTitle";
 import MovieImage from "./MovieImage";
 import MovieInfo from "./MovieInfo";
 import SpinnerLoader from "./SpinnerLoader";
-import ScrollButton from "./ScrollButton" 
+import ScrollButton from "./ScrollButton";
 import { useLocation } from "react-router-dom";
 function MovieDetails() {
   const location = useLocation();
@@ -54,13 +54,18 @@ function MovieDetails() {
     getCrew();
     getImages();
     getRecommended();
+    // return () => {
+    //   setMovieData({});
+    //   setCrew([]);
+    //   setImages({});
+    //   setRecommended({});
+    // };
   }, [movie_id]);
 
   // console.log(movieData);
   // console.log(Crew);
   // console.log(Images);
   // console.log(Recommended);
-  // console.log(movieData.title);
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -84,8 +89,8 @@ function MovieDetails() {
           votes={movieData.vote_count}
         />
         <MovieImage images={Images} />
-        <MovieInfo crew={Crew} data={movieData} recommended={Recommended}/>
-        <ScrollButton/>
+        <MovieInfo crew={Crew} data={movieData} recommended={Recommended} />
+        <ScrollButton />
         <Footer />
       </div>
     );

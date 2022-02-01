@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Slideshow from "./Slideshow";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import TopMoviesHeader from "./TopMoviesHeader";
+// import TopMoviesHeader from "./TopMoviesHeader";
 import Header from "./Header";
 import Footer from "./Footer";
 const api_key = process.env.REACT_APP_API_KEY;
@@ -56,7 +56,6 @@ function App() {
           />
         );
       })}
-      <TopMoviesHeader />
       <Footer />
     </div>
   );

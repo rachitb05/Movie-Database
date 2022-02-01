@@ -37,9 +37,7 @@ function SearchResult() {
   }, [searchQuery]);
 
   if (loading) {
-    return (
-      <SpinnerLoader/>
-    );
+    return <SpinnerLoader />;
   } else {
     return (
       <div>

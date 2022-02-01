@@ -1,11 +1,11 @@
-.profile{
-    margin-top: 15px;
+.profile {
+  margin-top: 15px;
 }
-.profile__icon{
-    color: rgb(250, 239, 221);
-    transform: scale(2);
-    /* margin-top: 5px; */
+.profile__icon {
+  color: rgb(250, 239, 221);
+  transform: scale(2);
+  /* margin-top: 5px; */
 }
-.profile__icon:hover{
-    color: gold;
+.profile__icon:hover {
+  color: gold;
 }

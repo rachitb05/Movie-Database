@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
-import "./ScrollButton.css"
+import "./ScrollButton.css";
 function ScrollButton() {
   const [visible, setVisible] = useState(false);
 
@@ -23,10 +23,10 @@ function ScrollButton() {
   window.addEventListener("scroll", toggleVisible);
   return (
     <div className="scrollbtn-container">
-      <ArrowCircleUpIcon className="scrollbtn-icon scale-in-center"
+      <ArrowCircleUpIcon
+        className="scrollbtn-icon scroll-btn-scale-in-center"
         onClick={scrollToTop}
-        style={{display: visible ? 'inline' : 'none'}}
-        
+        style={{ display: visible ? "inline" : "none" }}
       />
     </div>
   );

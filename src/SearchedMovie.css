@@ -6,6 +6,8 @@
   width: 80%;
   background-color: #cfcdcd;
   color: black;
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLOLcF8Yqb2jyHGyx6U6rrgVXcdJf8SxLuzw&usqp=CAU"); */
+  background-image: url("./searchresultbackgroundimg.jpeg");
 }
 .movie-title {
   text-align: center;

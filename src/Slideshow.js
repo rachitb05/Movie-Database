@@ -1,14 +1,14 @@
 import React from "react";
 import "./Slideshow.css";
 import { useNavigate } from "react-router-dom";
-function Slideshow({ movieData,index,current,id}) {
+function Slideshow({ movieData, index, current, id }) {
   const baseimgurl = "https://image.tmdb.org/t/p/w500";
   const imgurl = baseimgurl + movieData.poster_path;
   const navigate = useNavigate();
   function handleClick() {
-    navigate("/movie", { state: { id:id } });
+    navigate("/movie", { state: { id: id } });
   }
-    //  console.log(movieData);
+  //  console.log(movieData);
   return (
     <div className="slideshow">
       {index === current && (
@@ -23,7 +23,9 @@ function Slideshow({ movieData,index,current,id}) {
             <h1 text className="info__title slide-in-top" onClick={handleClick}>
               {movieData.title}
             </h1>
-            <h2 className="info__overview slide-in-right">{movieData.overview}</h2>
+            <h2 className="info__overview slide-in-right">
+              {movieData.overview}
+            </h2>
             {movieData.vote_avg === 0 ? (
               <h3 className="info__vote-avg slide-in-bottom">
                 Popularity:{movieData.popularity}

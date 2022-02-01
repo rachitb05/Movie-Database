@@ -5,8 +5,8 @@ function Recommendations({ data }) {
   let navigate = useNavigate();
   return (
     <div className="recommended-container">
-      {data.map((movie) => (
-        <div className="recommended-details">
+      {data.map((movie, index) => (
+        <div key={index} className="recommended-details">
           <div className="poster-div">
             <img
               className="poster-pic"
@@ -27,6 +27,12 @@ function Recommendations({ data }) {
           </h3>
         </div>
       ))}
+      {data.length === 0 && (
+        <h2 style={{ textAlign: "center" }}>
+          Currently Unavailable
+          <br /> Check back later !
+        </h2>
+      )}
     </div>
   );
 }

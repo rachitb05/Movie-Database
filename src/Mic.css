@@ -1,8 +1,13 @@
-.mic{
-    height: 24px;
-    width: 24px;
-    border: 2px solid white;
-    cursor: pointer;
-    margin-left: 2px;
+.mic {
+  height: 24px;
+  width: 24px;
+  border: 2px solid white;
+  cursor: pointer;
+  margin-left: 8px;
+  margin-top: 14px;
+  transform: scale(1.2);
 }
-.mic:hover{color: gold;border: 2px solid gold;}
+.mic:hover {
+  color: gold;
+  border: 2px solid gold;
+}

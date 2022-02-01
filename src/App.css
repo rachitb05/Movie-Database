@@ -2,6 +2,9 @@
 body {
   background-color: rgba(0, 0, 0, 0.932);
   color: white;
+  /* background-image: url("https://img1.wallspic.com/previews/5/1/4/6/5/156415/156415-black-color-grey-triangle-symmetry-x750.jpg"); */
+  /* background-image: url("https://media.istockphoto.com/vectors/black-background-vector-id1167050865?k=20&m=1167050865&s=170667a&w=0&h=87p1otObYsnHSlwbrgCcPN0sWEGo_UP9czQQzV087zE="); */
+  background-image: url("./backgroundimg-1.jpg");
 }
 .left-arrow {
   color: rgb(250, 239, 221);

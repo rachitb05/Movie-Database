@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import SearchBox from "./SearchBox";
-import Account from "./Account";
+// import Account from "./Account";
 import Mic from "./Mic";
 import "./Header.css";
 function Header() {
@@ -12,7 +12,7 @@ function Header() {
       <SearchBox>
         <Mic />
       </SearchBox>
-      <Account />
+      {/* <Account /> */}
     </div>
   );
 }
