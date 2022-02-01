@@ -1,14 +1,14 @@
 import React from "react";
 import "./Slideshow.css";
 import { useNavigate } from "react-router-dom";
-function Slideshow({ movieData,index,current }) {
+function Slideshow({ movieData,index,current,id}) {
   const baseimgurl = "https://image.tmdb.org/t/p/w500";
   const imgurl = baseimgurl + movieData.poster_path;
   const navigate = useNavigate();
   function handleClick() {
-    navigate("/movie", { state: { data: movieData } });
+    navigate("/movie", { state: { id:id } });
   }
-     console.log(movieData);
+    //  console.log(movieData);
   return (
     <div className="slideshow">
       {index === current && (

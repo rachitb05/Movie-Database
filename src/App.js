@@ -51,6 +51,7 @@ function App() {
             movieData={movie}
             index={index}
             current={current}
+            id={movie.id}
             key={index}
           />
         );

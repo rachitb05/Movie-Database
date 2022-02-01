@@ -2,28 +2,65 @@ import React, { useEffect, useState } from "react";
 import "./MovieDetails.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import MovieTitle from "./MovieTitle";
+import MovieImage from "./MovieImage";
+import MovieInfo from "./MovieInfo";
 import SpinnerLoader from "./SpinnerLoader";
+import ScrollButton from "./ScrollButton" 
 import { useLocation } from "react-router-dom";
 function MovieDetails() {
   const location = useLocation();
-  const movieData = location.state.data;
+  const movie_id = location.state.id;
+  const [movieData, setMovieData] = useState({});
   const [Crew, setCrew] = useState([]);
-  // console.log(movieData);
-  const movie_id = movieData.id;
+  const [Images, setImages] = useState({});
+  const [Recommended, setRecommended] = useState({});
+
   useEffect(() => {
-    const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
-    const getCrew = async () => {
+    const getMovieData = async () => {
+      const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
       await fetch(baseurl)
         .then((response) => response.json())
         .then((data) => {
-          setCrew(data.cast);
+          setMovieData(data);
+          // console.log(data);
         });
     };
+    const getCrew = async () => {
+      const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+      await fetch(baseurl)
+        .then((response) => response.json())
+        .then((data) => {
+          setCrew(data.cast.slice(0, 25));
+        });
+    };
+    const getImages = async () => {
+      const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}/images?api_key=${process.env.REACT_APP_API_KEY}&language=en-US,&include_image_language=en,null`;
+      await fetch(baseurl)
+        .then((response) => response.json())
+        .then((data) => {
+          setImages(data);
+        });
+    };
+    const getRecommended = async () => {
+      const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+      await fetch(baseurl)
+        .then((response) => response.json())
+        .then((data) => {
+          setRecommended(data);
+        });
+    };
+    getMovieData();
     getCrew();
+    getImages();
+    getRecommended();
   }, [movie_id]);
 
   // console.log(movieData);
   // console.log(Crew);
+  // console.log(Images);
+  // console.log(Recommended);
+  // console.log(movieData.title);
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -40,20 +77,15 @@ function MovieDetails() {
   else
     return (
       <div>
-        {/* DO SET LOADING PAGE */}
         <Header />
-        {Crew.map((member) => {
-          return (
-            <div>
-              <img
-                src={`https://image.tmdb.org/t/p/w185/${member.profile_path}`}
-                alt="Cast Member"
-              />
-              <h1>{member.character}</h1>
-              <h1>{member.name}</h1>
-            </div>
-          );
-        })}
+        <MovieTitle
+          title={movieData.title}
+          rating={movieData.vote_average}
+          votes={movieData.vote_count}
+        />
+        <MovieImage images={Images} />
+        <MovieInfo crew={Crew} data={movieData} recommended={Recommended}/>
+        <ScrollButton/>
         <Footer />
       </div>
     );

@@ -1,26 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import NoImg from "./noimg.jpg";
 import "./SearchedMovie.css";
 function SearchedMovie({ movie }) {
-  const [movieData, setMovieData] = useState({});
   let navigate = useNavigate();
-  useEffect(() => {
-    const movie_id = movie.id;
-    const baseurl = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
-    const getData = async () => {
-      await fetch(baseurl)
-      .then((response) => response.json())
-      .then((data) => {
-        setMovieData(data);
-        // console.log(data);
-      });
-    };
-    getData();
-  }, [movie]);
-  
+
   function handleClick() {
-    navigate("/movie", { state: { data: movieData } });
+    navigate("/movie", { state: { id: movie.id } });
   }
   return (
     <div className="movie-container">
@@ -34,26 +20,33 @@ function SearchedMovie({ movie }) {
         {movie.title}
       </h1>
       <div className="movie-imginfo">
-        {movieData.backdrop_path === null ||
-        movieData.backdrop_path === undefined ? (
-          <img className="movie-img" src={NoImg} alt="no img" onClick={handleClick} />
+        {movie.backdrop_path === null || movie.backdrop_path === undefined ? (
+          <img
+            className="movie-img"
+            src={NoImg}
+            alt="no img"
+            onClick={handleClick}
+          />
         ) : (
           <img
             className="movie-img"
-            src={`https://image.tmdb.org/t/p/w780/${movieData.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
             alt=""
+            onClick={handleClick}
           />
         )}
         <div
           className="movie-info"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3)),url("https://image.tmdb.org/t/p/w780/${movieData.backdrop_path}")`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.3)),url("https://image.tmdb.org/t/p/w780/${movie.backdrop_path}")`,
           }}
         >
           <h2>Release Date:{movie.release_date}</h2>
-          <h2>
-            User Rating:{movieData.vote_average}/10({movie.vote_count})
-          </h2>
+          {movie.vote_count > 0 && (
+            <h2>
+              User Rating:{movie.vote_average}/10({movie.vote_count})
+            </h2>
+          )}
         </div>
       </div>
     </div>

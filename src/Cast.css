@@ -1,0 +1,23 @@
+.cast-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cast-details{
+    flex:1 0 25%;
+}
+.profile-pic-div{
+    display: flex;
+    justify-content: center;
+}
+.profile-pic {
+  border-radius: 10%;
+}
+.name {
+  text-align: center;
+}
+.character {
+  text-align: center;
+  color: wheat;
+}
