@@ -6,6 +6,7 @@
   justify-content: space-around;
   font-size: 2rem;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 .info *:hover {
   color: white;

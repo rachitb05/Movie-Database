@@ -24,3 +24,10 @@ body {
   top: 50%;
   right: 1%;
 }
+
+@media (max-device-width: 480px) {
+  body {
+    /* transform: scale(0.7); */
+    zoom: 0.67;
+  }
+}

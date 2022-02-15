@@ -54,10 +54,10 @@
     display: none;
   }
   .info__title {
-    font-size: 150%;
+    font-size: 250%;
   }
   .info__vote-avg {
-    font-size: 100%;
+    font-size: 150%;
   }
 }
 

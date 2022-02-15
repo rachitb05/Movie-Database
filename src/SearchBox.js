@@ -18,7 +18,7 @@ function SearchBox() {
     <div div="searchbox">
       <form className="form" onSubmit={handleSubmit}>
         <label className="form__label">
-          Search for Movies
+          Search Movies
           <input
             className="form__input"
             type="text"
